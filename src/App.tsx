@@ -1,4 +1,11 @@
+import { useContext } from "react";
+import { TimerContext } from "./context/TimerProvider";
+
 export default function EPassPixel() {
+  const { timer } = useContext(TimerContext);
+
+  console.log(timer);
+
   return (
     <div className="min-h-screen bg-[#1e1e1e] flex justify-center items-start">
       <a href="/set-timer" className="absolute z-100 w-7 h-7 top-4 left-4">
