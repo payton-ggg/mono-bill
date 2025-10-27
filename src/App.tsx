@@ -1,6 +1,25 @@
 export default function EPassPixel() {
   return (
     <div className="min-h-screen bg-[#1e1e1e] flex justify-center items-start">
+      <div className="absolute top-4 left-4">
+        <button className="text-white">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15 18L9 12L15 6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
       <div className="w-full">
         <div className="relative w-full h-[150px] rounded-b-[28px] overflow-hidden">
           <img
@@ -10,7 +29,7 @@ export default function EPassPixel() {
           />
         </div>
 
-        <div className="relative bottom-5 mb-10 bg-[#272727] rounded-t-3xl pb-8">
+        <div className="relative bg-[#272727] -mt-6 rounded-t-3xl pb-8">
           <div className="flex justify-center absolute left-[185px] -mt-8 mb-3">
             <div className="w-16 h-16 rounded-full bg-[#22a475] shadow-md flex items-center justify-center">
               <img src="/bag.png" alt="bag" className="h-[32px] w-[32px]" />
@@ -130,15 +149,10 @@ export default function EPassPixel() {
                   </div>
                 </div>
               </div>
-
-              {/* Split expense button */}
-              <div className="mt-6">
-                <button className="w-full py-3 rounded-xl bg-linear-to-b from-[#0e0e0e] to-[#0b0b0b] border border-[#222] text-white font-semibold">
-                  Розділити витрату
-                </button>
-              </div>
             </div>
           </div>
+          {/* Split expense button */}
+          <img src="/buttons.png" className="w-full" alt="but" />
         </div>
       </div>
     </div>
