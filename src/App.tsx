@@ -2,7 +2,7 @@ export default function EPassPixel() {
   return (
     <div className="min-h-screen bg-[#1e1e1e] flex justify-center items-start">
       <div className="w-full">
-        <div className="relative w-full h-[260px] rounded-b-[28px] overflow-hidden">
+        <div className="relative w-full h-[150px] rounded-b-[28px] overflow-hidden">
           <img
             src="/map.png"
             alt="map"
