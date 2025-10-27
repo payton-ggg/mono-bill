@@ -12,30 +12,8 @@ export default function EPassPixel() {
 
         <div className="relative bottom-5 mb-10 bg-[#272727] rounded-t-3xl pb-8 shadow-[0_-12px_30px_rgba(0,0,0,0.6)]">
           <div className="flex justify-center absolute left-[185px] -mt-10 mb-3">
-            <div className="w-16 h-16 rounded-full bg-[#14b37f] shadow-md flex items-center justify-center border-4 border-[#101010]">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  x="6"
-                  y="7"
-                  width="12"
-                  height="10"
-                  rx="1.2"
-                  stroke="white"
-                  strokeWidth="1.4"
-                />
-                <path
-                  d="M9 7V6a3 3 0 0 1 6 0v1"
-                  stroke="white"
-                  strokeWidth="1.4"
-                  strokeLinecap="round"
-                />
-              </svg>
+            <div className="w-16 h-16 rounded-full bg-[#22a475] shadow-md flex items-center justify-center border-4 border-[#101010]">
+              <img src="/bag.png" alt="bag" className="h-8 w-8" />
             </div>
           </div>
 
