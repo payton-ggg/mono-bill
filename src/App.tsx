@@ -10,10 +10,10 @@ export default function EPassPixel() {
           />
         </div>
 
-        <div className="relative bottom-5 mb-10 bg-[#272727] rounded-t-3xl pb-8 shadow-[0_-12px_30px_rgba(0,0,0,0.6)]">
-          <div className="flex justify-center absolute left-[185px] -mt-10 mb-3">
-            <div className="w-16 h-16 rounded-full bg-[#22a475] shadow-md flex items-center justify-center border-4 border-[#101010]">
-              <img src="/bag.png" alt="bag" className="h-8 w-8" />
+        <div className="relative bottom-5 mb-10 bg-[#272727] rounded-t-3xl pb-8">
+          <div className="flex justify-center absolute left-[185px] -mt-8 mb-3">
+            <div className="w-16 h-16 rounded-full bg-[#22a475] shadow-md flex items-center justify-center">
+              <img src="/bag.png" alt="bag" className="h-[32px] w-[32px]" />
             </div>
           </div>
 
@@ -24,23 +24,9 @@ export default function EPassPixel() {
           </h1>
 
           <div className="flex justify-center mt-3">
-            <button className="px-4 py-1 bg-[#0fb798] hover:bg-[#0da783] text-sm rounded-full font-medium flex items-center gap-2">
+            <button className="px-4 py-1 bg-[#02908b] text-sm rounded-full font-normal text-white flex items-center gap-2">
               <span>Подорожі</span>
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 5v14M5 12h14"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <img src="/pencil.svg" className="w-3 h-3 " alt="" />
             </button>
           </div>
 
@@ -56,41 +42,28 @@ export default function EPassPixel() {
           </div>
 
           <div className="bg-[#1e1e1e] py-4">
-            <div className="mx-5">
+            <div className="mx-4">
               <div className="">
                 <div className="w-full rounded-lg bg-[#272727] p-3 text-gray-300 placeholder-gray-500">
                   <input
-                    className="w-f`ull bg-transparent outline-none text-sm text-gray-300"
+                    className="w-full bg-transparent outline-none text-md text-gray-300"
                     placeholder="Опис та #теги"
                   />
                 </div>
               </div>
 
               {/* Balance */}
-              <div className="mt-4 rounded-lg bg-[#272727] p-4 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[#0fb798] flex items-center justify-center shrink-0">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      x="3"
-                      y="6"
-                      width="18"
-                      height="12"
-                      rx="2"
-                      stroke="white"
-                      strokeWidth="1.2"
-                    />
-                    <path d="M3 10h18" stroke="white" strokeWidth="1.2" />
-                  </svg>
+              <div className="mt-4 rounded-lg bg-[#272727] p-4 flex items-center gap-4">
+                <div className="w-8 h-8 rounded-full bg-[#059a93] flex items-center justify-center shrink-0">
+                  <img
+                    src="/wallet.png"
+                    className="h-[18px] w-[18px]"
+                    alt="wallet"
+                  />
                 </div>
                 <div className="flex-1">
                   <div className="text-sm text-gray-400">Залишок</div>
-                  <div className="text-white font-medium text-lg">311.84 ₴</div>
+                  <div className="text-white font-normal text-md">311.84 ₴</div>
                 </div>
               </div>
 
@@ -98,30 +71,13 @@ export default function EPassPixel() {
               <div className="mt-4 rounded-lg bg-[#272727] p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-8">
-                    {/* VISA logo simplified */}
-                    <svg
-                      width="36"
-                      height="12"
-                      viewBox="0 0 36 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <text
-                        x="0"
-                        y="10"
-                        fontSize="10"
-                        fontFamily="sans-serif"
-                        fill="#2EA6FF"
-                      >
-                        VISA
-                      </text>
-                    </svg>
+                    <img src="/visa.png" alt="" />
                   </div>
                   <div>
-                    <div className="text-white font-medium">iPhone</div>
                     <div className="text-xs text-gray-400">
                       Оплата через Apple Pay
                     </div>
+                    <div className="text-white font-normal">iPhone</div>
                   </div>
                 </div>
                 <div className="text-gray-400 text-sm"> </div>
@@ -129,42 +85,43 @@ export default function EPassPixel() {
 
               {/* Small separator and label */}
               <div className="mt-6 flex items-center justify-center">
-                <div className="text-xs text-gray-400 rounded-full border border-[#1b1b1b] px-4 py-1">
+                <div className="text-xs text-gray-400 rounded-full border border-[#545454] px-4 py-1">
                   Витратили 15 ₴ за півроку
                 </div>
               </div>
 
               {/* Chart */}
               <div className="mt-5">
-                <div className="rounded-lg bg-[#272727] p-4 h-[140px]">
-                  <div className="h-full flex items-end gap-3">
-                    {/* left axis labels column */}
-                    <div className="flex flex-col justify-between text-xs text-gray-500 mr-2 h-full">
+                <div className="rounded-lg bg-[#272727] p-4 h-[140px] relative overflow-hidden">
+                  {/* ГОРИЗОНТАЛЬНЫЕ ЛИНИИ */}
+                  <div className="absolute left-10 right-4 top-[44px] h-[1px] bg-white/10 border-dashed border-t border-white/10"></div>
+                  <div className="absolute left-10 right-4 bottom-[26px] h-[1px] bg-white/10"></div>
+
+                  <div className="h-full flex items-end gap-3 relative z-10">
+                    {/* ЛЕВАЯ Ось значений */}
+                    <div className="flex flex-col justify-between text-[11px] text-gray-500 mr-2 h-full py-[6px]">
                       <div>15 ₴</div>
                       <div>8 ₴</div>
                       <div>0 ₴</div>
                     </div>
 
-                    {/* Chart bars container */}
-                    <div className="flex-1 flex items-end gap-2">
-                      {/* months: тра чер лип сер вер жов (labels under) */}
-                      {/* tiny bars for first months */}
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <div
-                          key={i}
-                          className="flex flex-col items-center gap-2"
-                        >
-                          <div className="w-4 h-6 bg-white/10 rounded-t-md"></div>
-                          <div className="text-[11px] text-gray-400 mt-2">
-                            {["тра", "чер", "лип", "сер", "вер"][i]}
+                    {/* СТОЛБЦЫ */}
+
+                    {/* Маленькие 5 месяцев */}
+                    <div className="flex-1 flex items-end relative top-3 justify-between pr-4">
+                      {["тра", "чер", "лип", "сер", "вер"].map((m, i) => (
+                        <div key={i} className="flex flex-col items-center">
+                          <div className="w-4 h-[4px] rounded-sm bg-white/30"></div>
+                          <div className="text-[10px] text-gray-400 mt-2">
+                            {m}
                           </div>
                         </div>
                       ))}
 
-                      {/* large bar for October */}
-                      <div className="flex flex-col items-center gap-2 ml-auto">
-                        <div className="w-6 h-32 rounded-t-md bg-linear-to-t from-[#ff6b6b] to-[#14b37f] shadow-lg"></div>
-                        <div className="text-[11px] text-gray-400 mt-2">
+                      {/* Большой столбец */}
+                      <div className="flex flex-col items-center">
+                        <div className="w-[12px] h-[56px] rounded-sm bg-gradient-to-b from-[#14B39C] to-[#EB9191] shadow-md"></div>
+                        <div className="text-[10px] text-gray-400 mt-2">
                           жов
                         </div>
                       </div>
