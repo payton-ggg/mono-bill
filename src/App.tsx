@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { TimerContext } from "./context/TimerProvider";
+import { Link } from "react-router-dom";
 
 export default function EPassPixel() {
   const { timer } = useContext(TimerContext);
@@ -32,9 +33,9 @@ export default function EPassPixel() {
 
   return (
     <div className="min-h-screen bg-[#1e1e1e] flex justify-center items-start">
-      <a href="/set-timer" className="absolute z-100 w-7 h-7 top-4 left-4">
+      <Link to="/set-timer" className="absolute z-100 w-7 h-7 top-4 left-4">
         <img src="/arr.png" />
-      </a>
+      </Link>
       <div className="absolute top-4 left-4">
         <button className="text-white">
           <svg
