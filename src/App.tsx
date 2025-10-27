@@ -94,12 +94,13 @@ export default function EPassPixel() {
               <div className="mt-5">
                 <div className="rounded-lg bg-[#272727] p-4 h-[140px] relative overflow-hidden">
                   {/* ГОРИЗОНТАЛЬНЫЕ ЛИНИИ */}
-                  <div className="absolute left-10 right-4 top-[44px] h-[1px] bg-white/10 border-dashed border-t border-white/10"></div>
-                  <div className="absolute left-10 right-4 bottom-[26px] h-[1px] bg-white/10"></div>
+                  <div className="absolute left-12 right-4 top-[34px] h-[1px] bg-white/10 border-dashed border-t border-white/10"></div>
+                  <div className="absolute left-12 right-4 top-[74px] h-[1px] bg-white/10 border-dashed border-t border-white/10"></div>
+                  <div className="absolute left-12 right-4 bottom-[26px] h-[1px] bg-white/10"></div>
 
                   <div className="h-full flex items-end gap-3 relative z-10">
                     {/* ЛЕВАЯ Ось значений */}
-                    <div className="flex flex-col justify-between text-[11px] text-gray-500 mr-2 h-full py-[6px]">
+                    <div className="flex flex-col text-right justify-between text-[11px] text-gray-500 mr-2 h-full py-[6px]">
                       <div>15 ₴</div>
                       <div>8 ₴</div>
                       <div>0 ₴</div>
@@ -120,7 +121,7 @@ export default function EPassPixel() {
 
                       {/* Большой столбец */}
                       <div className="flex flex-col items-center">
-                        <div className="w-[12px] h-[56px] rounded-sm bg-gradient-to-b from-[#14B39C] to-[#EB9191] shadow-md"></div>
+                        <div className="w-[12px] h-[80px] rounded-sm bg-gradient-to-b from-[#14B39C] to-[#EB9191] shadow-md"></div>
                         <div className="text-[10px] text-gray-400 mt-2">
                           жов
                         </div>
