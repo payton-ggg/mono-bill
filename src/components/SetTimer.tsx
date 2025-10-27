@@ -9,8 +9,6 @@ function SetTimer() {
     return null;
   }
 
-  console.log(timer);
-
   return (
     <>
       <h1>Set Time</h1>

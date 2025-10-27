@@ -3,8 +3,32 @@ import { TimerContext } from "./context/TimerProvider";
 
 export default function EPassPixel() {
   const { timer } = useContext(TimerContext);
+  const months = {
+    1: "січ",
+    2: "лют",
+    3: "бер",
+    4: "кві",
+    5: "тра",
+    6: "чер",
+    7: "лип",
+    8: "сер",
+    9: "вер",
+    10: "жов",
+    11: "лис",
+    12: "гру",
+  };
 
-  console.log(timer);
+  const date = new Date();
+  const mon = [];
+  for (let i = 5; i >= 1; i--) {
+    mon.push(
+      months[
+        (date.getMonth() >= 5
+          ? date.getMonth() + 2 - i
+          : date.getMonth() + 1 - i) as keyof typeof months
+      ]
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#1e1e1e] flex justify-center items-start">
@@ -59,9 +83,7 @@ export default function EPassPixel() {
             </button>
           </div>
 
-          <p className="text-center text-sm text-gray-400 mt-3">
-            27 жовтня 2025, 17:56
-          </p>
+          <p className="text-center text-sm text-gray-400 mt-3">{timer}</p>
 
           <div className="mt-3 mb-4 text-center">
             <div className="text-[44px] font-semibold text-white leading-none">
@@ -131,15 +153,15 @@ export default function EPassPixel() {
                     {/* ЛЕВАЯ Ось значений */}
                     <div className="flex flex-col text-right justify-between text-[11px] text-gray-500 mr-2 h-full py-[6px]">
                       <div>15 ₴</div>
-                      <div>8 ₴</div>
                       <div>0 ₴</div>
+                      <div>8 ₴</div>
                     </div>
 
                     {/* СТОЛБЦЫ */}
 
                     {/* Маленькие 5 месяцев */}
                     <div className="flex-1 flex items-end relative top-3 justify-between pr-4">
-                      {["тра", "чер", "лип", "сер", "вер"].map((m, i) => (
+                      {mon.map((m, i) => (
                         <div key={i} className="flex flex-col items-center">
                           <div className="w-4 h-[4px] rounded-sm bg-white/30"></div>
                           <div className="text-[10px] text-gray-400 mt-2">

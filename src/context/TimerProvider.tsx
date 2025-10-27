@@ -15,37 +15,37 @@ export const TimerContext = createContext<TimerContextType>(
 export const TimerProvider = ({ children }: { children: ReactNode }) => {
   const [timer, setTimer] = useState<Timer>();
   const months = {
-    1: "січень",
-    2: "лютий",
-    3: "березень",
-    4: "квітень",
-    5: "травень",
-    6: "червень",
-    7: "липень",
-    8: "серпень",
-    9: "вересень",
-    10: "жовтень",
-    11: "листопад",
-    12: "грудень",
+    1: "січня",
+    2: "лютня",
+    3: "березня",
+    4: "квітня",
+    5: "травня",
+    6: "червня",
+    7: "липня",
+    8: "серпня",
+    9: "вересня",
+    10: "жовтня",
+    11: "листопада",
+    12: "грудня",
   };
 
   const date = new Date();
-  const day = date.getDate();
-  const month = date.getMonth();
-  const year = date.getFullYear();
-  const time = date.toLocaleTimeString();
 
-  const formattedDate = `${day} ${
-    (months as Record<number, string>)[month + 1]
-  } ${year}, ${time.toString()}`;
-  console.log(formattedDate);
+  const formattedDate = `${date.getDate()} ${
+    (months as Record<number, string>)[date.getMonth() + 1]
+  } ${date.getFullYear()}, ${date
+    .toLocaleTimeString()
+    .split(":")
+    .slice(0, 2)
+    .join(":")}`;
+
   const toggleTimer = (time: Timer) => {
     setTimer(time);
   };
 
   return (
     <TimerContext.Provider
-      value={{ timer: timer ?? date.toLocaleTimeString(), toggleTimer }}
+      value={{ timer: timer ?? formattedDate, toggleTimer }}
     >
       {children}
     </TimerContext.Provider>
