@@ -65,7 +65,7 @@ export default function EPassPixel() {
         </div>
 
         <div className="relative bg-[#272727] -mt-6 rounded-t-3xl pb-8">
-          <div className="flex justify-center absolute left-[185px] -mt-8 mb-3">
+          <div className="flex justify-center absolute left-1/2 -translate-x-1/2 -mt-8 mb-3">
             <div className="w-16 h-16 rounded-full bg-[#22a475] shadow-md flex items-center justify-center">
               <img src="/bag.png" alt="bag" className="h-[32px] w-[32px]" />
             </div>
