@@ -1,0 +1,21 @@
+{
+  "name": "Monobank",
+  "short_name": "Monobank",
+  "description": "Monobank is a bank that offers you a lot of services!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5dc",
+  "theme_color": "#f5f5dc",
+  "icons": [
+    {
+      "src": "/map.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/map.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
