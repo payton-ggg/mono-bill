@@ -115,7 +115,7 @@ export default function EPassPixel() {
                 </div>
                 <div className="flex-1">
                   <div className="text-sm text-gray-400">Залишок</div>
-                  <div className="text-white font-normal text-md">311.84 ₴</div>
+                  <div className="text-white font-normal text-md">811.84 ₴</div>
                 </div>
               </div>
 
