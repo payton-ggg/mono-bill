@@ -30,9 +30,10 @@ export default function EPassPixel() {
       ]
     );
   }
+  const monthsList = mon.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-[#1e1e1e] flex justify-center items-start">
+    <div className="h-full overflow-y-auto overscroll-none bg-[#1e1e1e] flex justify-center items-start">
       <Link to="/set-timer" className="absolute z-100 w-7 h-7 top-4 left-4">
         <img src="/arr.png" />
       </Link>
@@ -153,16 +154,16 @@ export default function EPassPixel() {
                   <div className="h-full flex items-end gap-3 relative z-10">
                     {/* ЛЕВАЯ Ось значений */}
                     <div className="flex flex-col text-right justify-between text-[11px] text-gray-500 mr-2 h-full py-[6px]">
-                      <div>15 ₴</div>
+                      <div>90 ₴</div>
+                      <div>45 ₴</div>
                       <div>0 ₴</div>
-                      <div>8 ₴</div>
                     </div>
 
                     {/* СТОЛБЦЫ */}
 
                     {/* Маленькие 5 месяцев */}
                     <div className="flex-1 flex items-end relative top-3 justify-between pr-4">
-                      {mon.map((m, i) => (
+                      {monthsList.map((m, i) => (
                         <div key={i} className="flex flex-col items-center">
                           <div className="w-4 h-[4px] rounded-sm bg-white/30"></div>
                           <div className="text-[10px] text-gray-400 mt-2">
@@ -175,7 +176,13 @@ export default function EPassPixel() {
                       <div className="flex flex-col items-center">
                         <div className="w-[12px] h-[80px] rounded-sm bg-gradient-to-b from-[#14B39C] to-[#EB9191] shadow-md"></div>
                         <div className="text-[10px] text-gray-400 mt-2">
-                          жов
+                          {mon[4]}
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="w-[12px] h-[40px] rounded-sm bg-gradient-to-b from-[#14B39C] to-[#EB9191] shadow-md"></div>
+                        <div className="text-[10px] text-gray-400 mt-2">
+                          {mon[3]}
                         </div>
                       </div>
                     </div>
