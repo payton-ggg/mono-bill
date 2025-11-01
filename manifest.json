@@ -6,6 +6,7 @@
   "display": "standalone",
   "background_color": "#f5f5dc",
   "theme_color": "#f5f5dc",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/map.png",
