@@ -18,6 +18,7 @@ function SetTimer() {
         onChange={(e) => toggleTimer(e.target.value)}
       />
       <Link to="/">Go to EPassPixel</Link>
+      <Link to="/mine">Go to Set Timer</Link>
     </>
   );
 }

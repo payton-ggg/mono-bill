@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { TimerContext } from "./context/TimerProvider";
+
 import { Link } from "react-router-dom";
+import { TimerContext } from "../context/TimerProvider";
 
 export default function EPassPixel() {
-  const { timer } = useContext(TimerContext);
+  useContext(TimerContext);
   const months = {
     1: "січ",
     2: "лют",
@@ -67,29 +68,35 @@ export default function EPassPixel() {
 
         <div className="relative bg-[#272727] -mt-6 rounded-t-3xl pb-8">
           <div className="flex justify-center absolute left-1/2 -translate-x-1/2 -mt-8 mb-3">
-            <div className="w-16 h-16 rounded-full bg-[#22a475] shadow-md flex items-center justify-center">
-              <img src="/bag.png" alt="bag" className="h-[32px] w-[32px]" />
+            <div className="w-16 h-16 rounded-full shadow-md flex items-center justify-center">
+              <img
+                src="https://storage.yablo.tech/app_image/6924383016481900d7cc77ccaa72ad76/6bf332b36f64d65b5a34feaf40791192.png"
+                alt="bag"
+                className="h-[90%] w-[90%] rounded-full"
+              />
             </div>
           </div>
 
           <div className="h-10" />
 
           <h1 className="text-center text-white text-lg font-semibold">
-            Електронний квиток E-Pass
+            Нова пошта
           </h1>
 
           <div className="flex justify-center mt-3">
             <button className="px-4 py-1 bg-[#02908b] text-sm rounded-full font-normal text-white flex items-center gap-2">
-              <span>Подорожі</span>
+              <span>Інші</span>
               <img src="/pencil.svg" className="w-3 h-3 " alt="" />
             </button>
           </div>
 
-          <p className="text-center text-sm text-gray-400 mt-3">{timer}</p>
+          <p className="text-center text-sm text-gray-400 mt-3">
+            1 листопада 2025, 14:48
+          </p>
 
           <div className="mt-3 mb-4 text-center">
             <div className="text-[44px] font-semibold text-white leading-none">
-              -15<span className="text-2xl">.00</span>{" "}
+              -3 890<span className="text-2xl">.23</span>{" "}
               <span className="text-3xl">₴</span>
             </div>
           </div>
@@ -116,7 +123,7 @@ export default function EPassPixel() {
                 </div>
                 <div className="flex-1">
                   <div className="text-sm text-gray-400">Залишок</div>
-                  <div className="text-white font-normal text-md">811.84 ₴</div>
+                  <div className="text-white font-normal text-md">211.84 ₴</div>
                 </div>
               </div>
 
@@ -139,7 +146,7 @@ export default function EPassPixel() {
               {/* Small separator and label */}
               <div className="mt-6 flex items-center justify-center">
                 <div className="text-xs text-gray-400 rounded-full border border-[#545454] px-4 py-1">
-                  Витратили 135 ₴ за півроку
+                  Витратили 15 ₴ за півроку
                 </div>
               </div>
 
@@ -154,8 +161,8 @@ export default function EPassPixel() {
                   <div className="h-full flex items-end gap-3 relative z-10">
                     {/* ЛЕВАЯ Ось значений */}
                     <div className="flex flex-col text-right justify-between text-[11px] text-gray-500 mr-2 h-full py-[6px]">
-                      <div>90 ₴</div>
-                      <div>45 ₴</div>
+                      <div>3890 ₴</div>
+                      <div>1945 ₴</div>
                       <div>0 ₴</div>
                     </div>
 
@@ -177,12 +184,6 @@ export default function EPassPixel() {
                         <div className="w-[12px] h-[80px] rounded-sm bg-linear-to-b from-[#14B39C] to-[#EB9191] shadow-md"></div>
                         <div className="text-[10px] text-gray-400 mt-2">
                           {mon[4]}
-                        </div>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="w-[12px] h-[40px] rounded-sm bg-linear-to-b from-[#14B39C] to-[#EB9191] shadow-md"></div>
-                        <div className="text-[10px] text-gray-400 mt-2">
-                          {mon[3]}
                         </div>
                       </div>
                     </div>
