@@ -33,7 +33,7 @@ export const TimerProvider = ({ children }: { children: ReactNode }) => {
 
   const formattedDate = `${date.getDate()} ${
     (months as Record<number, string>)[date.getMonth() + 1]
-  } ${date.getFullYear()}, ${new Date(date.getTime() - 5 * 60 * 1000)
+  } ${date.getFullYear()}, ${new Date(date.getTime())
     .toLocaleTimeString()
     .split(":")
     .slice(0, 2)
