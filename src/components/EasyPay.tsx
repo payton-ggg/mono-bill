@@ -5,7 +5,6 @@ export default function EasyPay() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col font-sans text-[#333]">
-      {/* Header with Close Button */}
       <div className="flex justify-end p-4">
         <button
           onClick={() => navigate(-1)}
@@ -27,86 +26,12 @@ export default function EasyPay() {
           </svg>
         </button>
       </div>
-
-      {/* Main Content */}
+      <div className="h-[0.5px] w-full bg-gray-400" />
       <div className="flex-1 px-6 pt-4 pb-8 flex flex-col">
-        {/* Logo/Icon Area */}
         <div className="flex justify-center mb-10">
-          <svg
-            width="100"
-            height="100"
-            viewBox="0 0 100 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* Question Mark */}
-            <path
-              d="M40 25C40 18 45 15 50 15C58 15 62 20 62 28C62 38 50 40 50 55"
-              stroke="#5F7D8C"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
-            <circle cx="50" cy="68" r="3" fill="#5F7D8C" />
-
-            {/* Exclamation Mark - positioned to look like the logo */}
-            <path
-              d="M68 25V55"
-              stroke="#5F7D8C"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
-            <circle cx="68" cy="68" r="3" fill="#5F7D8C" />
-
-            {/* Decorative dots/lines at bottom */}
-            <path
-              d="M40 78H70"
-              stroke="#5F7D8C"
-              strokeWidth="2"
-              strokeDasharray="4 4"
-            />
-          </svg>
-          <div className="relative w-24 h-24 flex items-center justify-center">
-            {/* Custom SVG approximation of the logo */}
-            <svg
-              width="80"
-              height="80"
-              viewBox="0 0 100 100"
-              className="text-slate-500"
-            >
-              <path
-                d="M35 15C35 5 55 5 55 20C55 35 35 40 35 60"
-                stroke="currentColor"
-                strokeWidth="5"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <circle cx="35" cy="75" r="4" fill="currentColor" />
-
-              <path
-                d="M65 15V60"
-                stroke="currentColor"
-                strokeWidth="5"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <circle cx="65" cy="75" r="4" fill="currentColor" />
-
-              <path
-                d="M25 85H75"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeDasharray="0 15"
-                strokeDashoffset="0"
-              />
-              <circle cx="25" cy="85" r="2" fill="currentColor" />
-              <circle cx="50" cy="85" r="2" fill="currentColor" />
-              <circle cx="75" cy="85" r="2" fill="currentColor" />
-            </svg>
-          </div>
+          <img src="/question.jpg" alt="question" />
         </div>
 
-        {/* Transaction Details */}
         <div className="space-y-5 text-sm">
           <div className="flex justify-between items-start">
             <span className="text-gray-500">Статус:</span>
@@ -152,14 +77,12 @@ export default function EasyPay() {
           </div>
         </div>
 
-        {/* Total Amount */}
         <div className="mt-10 mb-8 flex justify-between items-end">
           <span className="text-gray-500 text-sm mb-1">Сплачено:</span>
           <span className="text-4xl font-light text-slate-700">15.00 грн</span>
         </div>
       </div>
 
-      {/* Receipt Link */}
       <div className="border-t border-b border-gray-100 py-4 px-6 mb-6">
         <button className="w-full flex justify-between items-center text-gray-500 hover:text-gray-700">
           <span>Квитанція</span>
@@ -178,8 +101,7 @@ export default function EasyPay() {
         </button>
       </div>
 
-      {/* Footer Banner */}
-      <div className="mx-4 mb-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-4 flex items-center relative overflow-hidden shadow-sm">
+      <div className="mx-4 mb-4 bg-linear-to-r from-blue-50 to-blue-100 rounded-2xl p-4 flex items-center relative overflow-hidden shadow-sm">
         <div className="mr-4 -ml-2 -mb-4 z-10">
           {/* <img
             src={horseImage}
