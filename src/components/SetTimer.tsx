@@ -26,6 +26,7 @@ function SetTimer() {
       <Link to="/">Go to EPassPixel Mono</Link>
       <br />
       <br />
+      <Link to="/easy-pay">EasyPay transaction</Link>
     </>
   );
 }
