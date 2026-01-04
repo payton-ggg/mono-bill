@@ -32,59 +32,70 @@ export default function EasyPay() {
           <img src="/question.jpg" alt="question" />
         </div>
 
-        <div className="space-y-5 text-sm">
-          <div className="flex justify-between items-start">
-            <span className="text-gray-500">Статус:</span>
-            <span className="text-emerald-500 font-medium flex items-center gap-1.5">
-              Проведений
-              <div className="bg-emerald-500 rounded-full p-0.5">
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-            </span>
-          </div>
+        <table className="w-full text-sm font-medium border-separate border-spacing-y-4">
+          <colgroup>
+            <col className="w-1/2" />
+            <col className="w-1/2" />
+          </colgroup>
 
-          <div className="flex justify-between items-start">
-            <span className="text-gray-500">№ транзакції:</span>
-            <span className="text-gray-700">1734467309</span>
-          </div>
+          <tbody className="">
+            <tr className="mt-5">
+              <td className="text-gray-500">Статус:</td>
+              <td className="text-emerald-500 font-normal flex items-center gap-1.5">
+                Проведений
+                <div className="bg-emerald-500 rounded-full p-0.5">
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+              </td>
+            </tr>
 
-          <div className="flex justify-between items-start">
-            <span className="text-gray-500">Послуга:</span>
-            <span className="text-gray-700 text-right max-w-[60%] leading-tight">
-              Запоріжелектротранс: разова поїздка QR
-            </span>
-          </div>
+            <tr className="mt-5">
+              <td className="text-gray-500">№ транзакції:</td>
+              <td className="text-gray-700 font-normal">1734467309</td>
+            </tr>
 
-          <div className="flex justify-between items-start pt-2">
-            <span className="text-gray-500">Сума:</span>
-            <span className="text-gray-700">15.00</span>
-          </div>
+            <tr className="mt-5">
+              <td className="text-gray-500">Послуга:</td>
+              <td className="text-gray-700 font-normal leading-tight">
+                Запоріжелектротранс: разова поїздка QR
+              </td>
+            </tr>
 
-          <div className="flex justify-between items-start">
-            <span className="text-gray-500">Комісія:</span>
-            <span className="text-gray-700">0.00</span>
-          </div>
-        </div>
+            <tr>
+              <td className="text-gray-500">Сума:</td>
+              <td className="text-gray-700 font-normal">15.00</td>
+            </tr>
 
-        <div className="mt-10 mb-8 flex justify-between items-end">
-          <span className="text-gray-500 text-sm mb-1">Сплачено:</span>
-          <span className="text-4xl font-light text-slate-700">15.00 грн</span>
-        </div>
+            <tr>
+              <td className="text-gray-500">Комісія:</td>
+              <td className="text-gray-700 font-normal">0.00</td>
+            </tr>
+          </tbody>
+        </table>
+        <table className="w-full text-sm font-medium border-separate border-spacing-y-4">
+          <colgroup>
+            <col className="w-1/2" />
+            <col className="w-1/2" />
+          </colgroup>
+          <tr className="mt-5">
+            <td className="text-gray-500 text-sm mb-1">Сплачено:</td>
+            <td className="text-4xl font-light text-slate-700">15.00 грн</td>
+          </tr>
+        </table>
       </div>
-
       <div className="border-t border-b border-gray-100 py-4 px-6 mb-6">
-        <button className="w-full flex justify-between items-center text-gray-500 hover:text-gray-700">
+        <button className="w-full flex  items-center text-gray-500 hover:text-gray-700">
           <span>Квитанція</span>
           <svg
             width="20"
