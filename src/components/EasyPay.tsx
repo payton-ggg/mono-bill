@@ -121,7 +121,7 @@ export default function EasyPay() {
         </button>
       </div>
 
-      <div className="mx-4 mb-4 bg-linear-to-r from-blue-50 to-blue-100 rounded-2xl p-4 flex items-center relative overflow-hidden shadow-sm">
+      <div className="">
         <img src="/bottom.png" alt="knife" />
       </div>
     </div>
