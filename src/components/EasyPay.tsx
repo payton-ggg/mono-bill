@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { TimerContext } from "../context/TimerProvider";
 
 export default function EasyPay() {
+  const { money } = useContext(TimerContext);
   const navigate = useNavigate();
 
   return (
@@ -62,7 +65,9 @@ export default function EasyPay() {
 
             <tr className="mt-5">
               <td className="text-gray-500">№ транзакції:</td>
-              <td className="text-gray-700 font-normal">1734467309</td>
+              <td className="text-gray-700 font-normal">
+                1{Math.floor(100000000 + Math.random() * 900000000)}
+              </td>
             </tr>
 
             <tr className="mt-5">
@@ -74,7 +79,9 @@ export default function EasyPay() {
 
             <tr>
               <td className="text-gray-500">Сума:</td>
-              <td className="text-gray-700 font-normal">15.00</td>
+              <td className="text-gray-700 font-normal">
+                {money === "15" ? "15.00" : "7.50"}
+              </td>
             </tr>
 
             <tr>
@@ -90,7 +97,9 @@ export default function EasyPay() {
           </colgroup>
           <tr className="mt-5">
             <td className="text-gray-500 text-sm mb-1">Сплачено:</td>
-            <td className="text-4xl font-light text-slate-700">15.00 грн</td>
+            <td className="text-4xl font-light text-slate-700">
+              {money === "15" ? "15.00" : "7.50"} грн
+            </td>
           </tr>
         </table>
       </div>
