@@ -4,7 +4,7 @@ export default function EasyPay() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white flex flex-col font-sans text-[#333]">
+    <div className="fixed bg-white flex flex-col font-sans text-[#333]">
       <div className="flex justify-end p-4">
         <button
           onClick={() => navigate(-1)}
@@ -94,7 +94,7 @@ export default function EasyPay() {
           </tr>
         </table>
       </div>
-      <div className="border-t border-b border-gray-100 py-4 px-6 mb-6">
+      <div className="border-t border-b border-gray-300 py-4 px-6 mt-6">
         <button className="w-full flex  items-center text-gray-500 hover:text-gray-700">
           <span>Квитанція</span>
           <svg
@@ -113,24 +113,7 @@ export default function EasyPay() {
       </div>
 
       <div className="mx-4 mb-4 bg-linear-to-r from-blue-50 to-blue-100 rounded-2xl p-4 flex items-center relative overflow-hidden shadow-sm">
-        <div className="mr-4 -ml-2 -mb-4 z-10">
-          {/* <img
-            src={horseImage}
-            alt="Pixel Horse"
-            className="w-16 h-16 object-contain"
-            style={{ imageRendering: "pixelated" }}
-          /> */}
-        </div>
-        <div className="flex-1 z-10">
-          <p
-            className="font-bold text-slate-600 text-lg tracking-wide drop-shadow-sm"
-            style={{ fontFamily: "monospace" }}
-          >
-            Грай, скачи,
-            <br />
-            вигравай!
-          </p>
-        </div>
+        <img src="/bottom.png" alt="knife" />
       </div>
     </div>
   );
