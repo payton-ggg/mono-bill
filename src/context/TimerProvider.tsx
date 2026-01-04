@@ -5,6 +5,8 @@ type Timer = string;
 interface TimerContextType {
   timer: Timer;
   toggleTimer: (time: Timer) => void;
+  money: Timer;
+  toggleMoney: (money: Timer) => void;
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -14,6 +16,7 @@ export const TimerContext = createContext<TimerContextType>(
 
 export const TimerProvider = ({ children }: { children: ReactNode }) => {
   const [timer, setTimer] = useState<Timer>();
+  const [money, setMoney] = useState<Timer>();
   const months = {
     1: "січня",
     2: "лютня",
@@ -43,9 +46,18 @@ export const TimerProvider = ({ children }: { children: ReactNode }) => {
     setTimer(time);
   };
 
+  const toggleMoney = (money: Timer) => {
+    setMoney(money);
+  };
+
   return (
     <TimerContext.Provider
-      value={{ timer: timer ?? formattedDate, toggleTimer }}
+      value={{
+        timer: timer ?? formattedDate,
+        toggleTimer,
+        money: money ?? "15",
+        toggleMoney,
+      }}
     >
       {children}
     </TimerContext.Provider>

@@ -3,7 +3,7 @@ import { TimerContext } from "../context/TimerProvider";
 import { Link } from "react-router-dom";
 
 function SetTimer() {
-  const { timer, toggleTimer } = useContext(TimerContext);
+  const { timer, toggleTimer, money, toggleMoney } = useContext(TimerContext);
 
   if (!timer) {
     return null;
@@ -11,14 +11,21 @@ function SetTimer() {
 
   return (
     <>
-      <h1>Set Time</h1>
+      <h1>Monobank</h1>
       <input
         type="text"
         value={timer}
         onChange={(e) => toggleTimer(e.target.value)}
       />
-      <Link to="/">Go to EPassPixel</Link>
-      <Link to="/mine">Go to Set Timer</Link>
+      <input
+        type="text"
+        placeholder="Без копеек, батя все сделал уже. 15 или 7"
+        value={money}
+        onChange={(e) => toggleMoney(e.target.value)}
+      />
+      <Link to="/">Go to EPassPixel Mono</Link>
+      <br />
+      <br />
     </>
   );
 }
