@@ -91,7 +91,7 @@ export default function EPassPixel() {
             <div className="text-[44px] font-semibold text-white leading-none">
               -{money}
               <span className="text-2xl">
-                {money}
+                {money}.00
               </span>{" "}
               <span className="text-3xl">₴</span>
             </div>
