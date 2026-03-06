@@ -80,7 +80,7 @@ export default function EasyPay() {
             <tr>
               <td className="text-gray-500">Сума:</td>
               <td className="text-gray-700 font-normal">
-                {money === "15" ? "15.00" : "7.50"}
+                {money}.00
               </td>
             </tr>
 
