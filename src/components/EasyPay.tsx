@@ -80,7 +80,7 @@ export default function EasyPay() {
             <tr>
               <td className="text-gray-500">Сума:</td>
               <td className="text-gray-700 font-normal">
-                {money}.00
+                {money}
               </td>
             </tr>
 
@@ -98,7 +98,7 @@ export default function EasyPay() {
           <tr className="mt-5">
             <td className="text-gray-500 text-sm mb-1">Сплачено:</td>
             <td className="text-4xl font-light text-slate-700">
-              {money}.00 грн
+              {money} грн
             </td>
           </tr>
         </table>
