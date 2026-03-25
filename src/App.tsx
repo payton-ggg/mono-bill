@@ -89,7 +89,7 @@ export default function EPassPixel() {
 
           <div className="mt-3 mb-4 text-center">
             <div className="text-[44px] font-semibold text-white leading-none">
-              -{money}
+              -{money.split(".")[0]}
               <span className="text-2xl">
                 .{money.toString().split(".")[1] === "00" ? "00" : money.split(".")[1]}
               </span>{" "}
