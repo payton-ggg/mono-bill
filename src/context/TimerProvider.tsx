@@ -55,7 +55,7 @@ export const TimerProvider = ({ children }: { children: ReactNode }) => {
       value={{
         timer: timer ?? formattedDate,
         toggleTimer,
-        money: money ?? "15",
+        money: money ?? "15.00",
         toggleMoney,
       }}
     >
