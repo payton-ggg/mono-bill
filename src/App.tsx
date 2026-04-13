@@ -3,7 +3,7 @@ import { TimerContext } from "./context/TimerProvider";
 import { Link } from "react-router-dom";
 
 export default function EPassPixel() {
-  const { timer, money } = useContext(TimerContext);
+  const { timer, money, toggleDisplayMode } = useContext(TimerContext);
   const months = {
     1: "січ",
     2: "лют",
@@ -27,7 +27,7 @@ export default function EPassPixel() {
         (date.getMonth() >= 5
           ? date.getMonth() + 2 - i
           : date.getMonth() + 1 - i) as keyof typeof months
-      ]
+      ],
     );
   }
   const monthsList = mon.slice(0, 3);
@@ -87,12 +87,13 @@ export default function EPassPixel() {
 
           <p className="text-center text-sm text-gray-400 mt-3">{timer}</p>
 
-          <div className="mt-3 mb-4 text-center">
+          <div
+            className="mt-3 mb-4 text-center select-none"
+            onClick={toggleDisplayMode}
+          >
             <div className="text-[44px] font-semibold text-white leading-none">
               -{money.split(".")[0]}
-              <span className="text-2xl">
-                .{money.toString().split(".")[1] === "00" ? "00" : money.split(".")[1]}
-              </span>{" "}
+              <span className="text-2xl">.{money.split(".")[1]}</span>{" "}
               <span className="text-3xl">₴</span>
             </div>
           </div>
