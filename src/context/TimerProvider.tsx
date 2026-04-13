@@ -11,7 +11,9 @@ type Timer = string;
 interface TimerContextType {
   timer: Timer;
   money: Timer;
-  toggleMoney: (money: Timer) => void;
+  times: { current: string; previous: string };
+  setMoney: (money: Timer) => void;
+  setTimerValues: (vals: { current: string; previous: string }) => void;
   toggleDisplayMode: () => void;
 }
 
@@ -47,86 +49,98 @@ const formatDate = (date: Date): string =>
     .join(":")}`;
 
 export const TimerProvider = ({ children }: { children: ReactNode }) => {
-  const [money, setMoney] = useState<Timer>("15.00");
-
-  const [displayMode, setDisplayMode] =
-    useState<"current" | "previous">("current");
-
-  const [times, setTimes] = useState({
-    current: "",
-    previous: "",
-  });
-
+  const [money, setMoney] = useState<Timer>(() => localStorage.getItem("entry_money") || "15.00");
+  const [displayMode, setDisplayMode] = useState<"current" | "previous">("current");
+  const [times, setTimes] = useState({ current: "", previous: "" });
   const swapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  /* ===== Init ===== */
+  useEffect(() => {
+    localStorage.setItem("entry_money", money);
+  }, [money]);
 
+  /* ===== Init ===== */
   useEffect(() => {
     const now = formatDate(new Date());
+    const storedPrevious = localStorage.getItem(STORAGE.previous);
+    const lastCurrent = localStorage.getItem(STORAGE.current);
 
-    const previous =
-      localStorage.getItem(STORAGE.previous) ??
-      localStorage.getItem(STORAGE.current) ??
-      "";
-
+    // BUG FIX: On refresh, current becomes 'now', 
+    // but previous stays as whatever was stored in 'previous'.
+    // In your previous code, you were setting previous = lastCurrent every refresh.
+    // Now it stays until a swap happens.
+    
     localStorage.setItem(STORAGE.current, now);
+    // If no previous exists at all, set it to now
+    if (!storedPrevious) {
+        localStorage.setItem(STORAGE.previous, lastCurrent || now);
+    }
 
-    setTimes({ current: now, previous });
+    setTimes({ 
+        current: now, 
+        previous: localStorage.getItem(STORAGE.previous) || now 
+    });
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "VolumeDown" || e.key === "ArrowDown") {
+        setDisplayMode("previous");
+      } else if (e.key === "VolumeUp" || e.key === "ArrowUp") {
+        setDisplayMode("current");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   /* ===== Toggle UI mode ===== */
-
   const toggleDisplayMode = () => {
-    setDisplayMode(prev => {
-      const next = prev === "current" ? "previous" : "current";
+    setDisplayMode(prev => (prev === "current" ? "previous" : "current"));
+  };
 
-      if (next === "previous") {
-        startBackgroundSwapProtection();
-      } else {
-        cancelBackgroundSwap();
+  /* ===== Background swap logic ===== */
+  useEffect(() => {
+    if (displayMode === "previous") {
+      if (swapTimeoutRef.current) return;
+      
+      swapTimeoutRef.current = setTimeout(() => {
+        setTimes(prev => {
+          const next = { current: prev.previous, previous: prev.current };
+          localStorage.setItem(STORAGE.current, next.current);
+          localStorage.setItem(STORAGE.previous, next.previous);
+          return next;
+        });
+      }, 10_000);
+    } else {
+      if (swapTimeoutRef.current) {
+        clearTimeout(swapTimeoutRef.current);
+        swapTimeoutRef.current = null;
       }
+    }
+    return () => {
+      if (swapTimeoutRef.current) clearTimeout(swapTimeoutRef.current);
+    };
+  }, [displayMode]);
 
-      return next;
-    });
+  const setTimerValues = (vals: { current: string; previous: string }) => {
+    setTimes(vals);
+    localStorage.setItem(STORAGE.current, vals.current);
+    localStorage.setItem(STORAGE.previous, vals.previous);
   };
 
-  /* ===== Background swap (storage only) ===== */
-
-  const startBackgroundSwapProtection = () => {
-    if (swapTimeoutRef.current) return;
-
-    swapTimeoutRef.current = setTimeout(() => {
-      const current = localStorage.getItem(STORAGE.current);
-      const previous = localStorage.getItem(STORAGE.previous);
-
-      if (!current || !previous) return;
-
-      localStorage.setItem(STORAGE.current, previous);
-      localStorage.setItem(STORAGE.previous, current);
-
-      // ❗ НЕ трогаем React state
-    }, 10_000);
-  };
-
-  const cancelBackgroundSwap = () => {
-    if (!swapTimeoutRef.current) return;
-    clearTimeout(swapTimeoutRef.current);
-    swapTimeoutRef.current = null;
-  };
-
-  const timer =
-    displayMode === "current" ? times.current : times.previous;
+  const timer = displayMode === "current" ? times.current : times.previous;
 
   return (
     <TimerContext.Provider
       value={{
         timer,
         money,
-        toggleMoney: setMoney,
+        times,
+        setMoney,
+        setTimerValues,
         toggleDisplayMode,
       }}
     >
       {children}
     </TimerContext.Provider>
   );
-};
+};
