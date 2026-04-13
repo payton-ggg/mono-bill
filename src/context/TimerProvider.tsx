@@ -18,7 +18,7 @@ interface TimerContextType {
 }
 
 export const TimerContext = createContext<TimerContextType>(
-  {} as TimerContextType
+  {} as TimerContextType,
 );
 
 const STORAGE = {
@@ -48,9 +48,15 @@ const formatDate = (date: Date): string =>
     .slice(0, 2)
     .join(":")}`;
 
+let hasShiftedThisSession = false;
+
 export const TimerProvider = ({ children }: { children: ReactNode }) => {
-  const [money, setMoney] = useState<Timer>(() => localStorage.getItem("entry_money") || "15.00");
-  const [displayMode, setDisplayMode] = useState<"current" | "previous">("current");
+  const [money, setMoney] = useState<Timer>(
+    () => localStorage.getItem("entry_money") || "15.00",
+  );
+  const [displayMode, setDisplayMode] = useState<"current" | "previous">(
+    "current",
+  );
   const [times, setTimes] = useState({ current: "", previous: "" });
   const swapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -60,24 +66,31 @@ export const TimerProvider = ({ children }: { children: ReactNode }) => {
 
   /* ===== Init ===== */
   useEffect(() => {
-    const now = formatDate(new Date());
-    const storedPrevious = localStorage.getItem(STORAGE.previous);
-    const lastCurrent = localStorage.getItem(STORAGE.current);
-
-    // BUG FIX: On refresh, current becomes 'now', 
-    // but previous stays as whatever was stored in 'previous'.
-    // In your previous code, you were setting previous = lastCurrent every refresh.
-    // Now it stays until a swap happens.
-    
-    localStorage.setItem(STORAGE.current, now);
-    // If no previous exists at all, set it to now
-    if (!storedPrevious) {
-        localStorage.setItem(STORAGE.previous, lastCurrent || now);
+    if (hasShiftedThisSession) {
+      setTimes({
+        current: localStorage.getItem(STORAGE.current) || "",
+        previous: localStorage.getItem(STORAGE.previous) || "",
+      });
+      return;
     }
 
-    setTimes({ 
-        current: now, 
-        previous: localStorage.getItem(STORAGE.previous) || now 
+    hasShiftedThisSession = true;
+
+    const now = formatDate(new Date());
+    const storedCurrent = localStorage.getItem(STORAGE.current);
+
+    // Shift logic: Old Current becomes Previous, New Current is 'now'
+    if (storedCurrent) {
+      localStorage.setItem(STORAGE.previous, storedCurrent);
+    } else {
+      localStorage.setItem(STORAGE.previous, now);
+    }
+
+    localStorage.setItem(STORAGE.current, now);
+
+    setTimes({
+      current: now,
+      previous: localStorage.getItem(STORAGE.previous) || now,
     });
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -94,21 +107,23 @@ export const TimerProvider = ({ children }: { children: ReactNode }) => {
 
   /* ===== Toggle UI mode ===== */
   const toggleDisplayMode = () => {
-    setDisplayMode(prev => (prev === "current" ? "previous" : "current"));
+    setDisplayMode((prev) => (prev === "current" ? "previous" : "current"));
   };
 
   /* ===== Background swap logic ===== */
   useEffect(() => {
     if (displayMode === "previous") {
       if (swapTimeoutRef.current) return;
-      
+
       swapTimeoutRef.current = setTimeout(() => {
-        setTimes(prev => {
-          const next = { current: prev.previous, previous: prev.current };
-          localStorage.setItem(STORAGE.current, next.current);
-          localStorage.setItem(STORAGE.previous, next.previous);
-          return next;
-        });
+        // Swap values ONLY in localStorage as requested.
+        // This won't change the UI until the next refresh.
+        const c = localStorage.getItem(STORAGE.current);
+        const p = localStorage.getItem(STORAGE.previous);
+        if (c && p) {
+          localStorage.setItem(STORAGE.current, p);
+          localStorage.setItem(STORAGE.previous, c);
+        }
       }, 10_000);
     } else {
       if (swapTimeoutRef.current) {
@@ -143,4 +158,4 @@ export const TimerProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </TimerContext.Provider>
   );
-};
+};
