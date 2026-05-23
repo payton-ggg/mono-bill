@@ -3,14 +3,18 @@ import { TimerContext } from "../context/TimerProvider";
 import { Link } from "react-router-dom";
 
 function SetTimer() {
-  const { times, setTimerValues, money, setMoney } = useContext(TimerContext);
+  const { times, setTimerValues, money, setMoney, balance, setBalance, balanceMine, setBalanceMine } = useContext(TimerContext);
   
   const [localTimes, setLocalTimes] = useState(times);
   const [localMoney, setLocalMoney] = useState(money);
+  const [localBalance, setLocalBalance] = useState(balance);
+  const [localBalanceMine, setLocalBalanceMine] = useState(balanceMine);
 
   const handleSave = () => {
     setTimerValues(localTimes);
     setMoney(localMoney);
+    setBalance(localBalance);
+    setBalanceMine(localBalanceMine);
     alert("Налаштування збережено!");
   };
 
@@ -68,7 +72,7 @@ function SetTimer() {
 
           <section>
             <h2 className="text-gray-500 text-xs uppercase tracking-widest mb-4 font-bold px-1">Фінанси</h2>
-            <div className="bg-[#1e1e1e] rounded-2xl p-4 border border-white/5">
+            <div className="bg-[#1e1e1e] rounded-2xl p-4 border border-white/5 space-y-4">
               <div className="space-y-2">
                 <label className="text-sm text-gray-400">Сума проїзду</label>
                 <input
@@ -79,6 +83,28 @@ function SetTimer() {
                   onChange={(e) => setLocalMoney(e.target.value)}
                 />
                 <p className="text-[10px] text-gray-600 px-1">Введіть суму з копійками (напр. 15.00)</p>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm text-gray-400">Залишок E-Pass</label>
+                <input
+                  className="w-full bg-[#121212] border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-500/50 transition-all text-white font-mono"
+                  type="text"
+                  placeholder="811.84"
+                  value={localBalance}
+                  onChange={(e) => setLocalBalance(e.target.value)}
+                />
+                <p className="text-[10px] text-gray-600 px-1">Введіть суму з копійками (напр. 811.84)</p>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm text-gray-400">Залишок Нова пошта</label>
+                <input
+                  className="w-full bg-[#121212] border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-500/50 transition-all text-white font-mono"
+                  type="text"
+                  placeholder="211.84"
+                  value={localBalanceMine}
+                  onChange={(e) => setLocalBalanceMine(e.target.value)}
+                />
+                <p className="text-[10px] text-gray-600 px-1">Введіть суму з копійками (напр. 211.84)</p>
               </div>
             </div>
           </section>

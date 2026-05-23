@@ -12,8 +12,12 @@ interface TimerContextType {
   timer: Timer;
   money: Timer;
   times: { current: string; previous: string };
+  balance: string;
+  balanceMine: string;
   setMoney: (money: Timer) => void;
   setTimerValues: (vals: { current: string; previous: string }) => void;
+  setBalance: (balance: string) => void;
+  setBalanceMine: (balance: string) => void;
   toggleDisplayMode: () => void;
 }
 
@@ -54,6 +58,12 @@ export const TimerProvider = ({ children }: { children: ReactNode }) => {
   const [money, setMoney] = useState<Timer>(
     () => localStorage.getItem("entry_money") || "15.00",
   );
+  const [balance, setBalance] = useState<string>(
+    () => localStorage.getItem("entry_balance") || "811.84",
+  );
+  const [balanceMine, setBalanceMine] = useState<string>(
+    () => localStorage.getItem("entry_balance_mine") || "211.84",
+  );
   const [displayMode, setDisplayMode] = useState<"current" | "previous">(
     "current",
   );
@@ -63,6 +73,14 @@ export const TimerProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     localStorage.setItem("entry_money", money);
   }, [money]);
+
+  useEffect(() => {
+    localStorage.setItem("entry_balance", balance);
+  }, [balance]);
+
+  useEffect(() => {
+    localStorage.setItem("entry_balance_mine", balanceMine);
+  }, [balanceMine]);
 
   /* ===== Init ===== */
   useEffect(() => {
@@ -150,7 +168,11 @@ export const TimerProvider = ({ children }: { children: ReactNode }) => {
         timer,
         money,
         times,
+        balance,
+        balanceMine,
         setMoney,
+        setBalance,
+        setBalanceMine,
         setTimerValues,
         toggleDisplayMode,
       }}

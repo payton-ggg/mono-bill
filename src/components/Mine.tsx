@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { TimerContext } from "../context/TimerProvider";
 
 export default function EPassPixel() {
-  useContext(TimerContext);
+  const { balanceMine } = useContext(TimerContext);
   const months = {
     1: "січ",
     2: "лют",
@@ -123,7 +123,7 @@ export default function EPassPixel() {
                 </div>
                 <div className="flex-1">
                   <div className="text-sm text-gray-400">Залишок</div>
-                  <div className="text-white font-normal text-md">211.84 ₴</div>
+                  <div className="text-white font-normal text-md">{balanceMine} ₴</div>
                 </div>
               </div>
 
