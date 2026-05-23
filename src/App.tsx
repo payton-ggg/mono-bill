@@ -37,7 +37,7 @@ export default function EPassPixel() {
       <Link to="/set-timer" className="absolute z-100 w-7 h-7 top-4 left-4">
         <img src="/arr.png" />
       </Link>
-      <div className="absolute top-4 left-4">
+      <div className="absolute top-10 left-4">
         <button className="text-white">
           <svg
             width="24"
