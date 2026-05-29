@@ -34,7 +34,7 @@ export default function EPassPixel() {
 
   return (
     <div className="h-full overflow-y-auto overscroll-none bg-[#1e1e1e] flex justify-center items-start">
-      <Link to="/set-timer" className="absolute z-100 w-7 h-7 top-8 left-4">
+      <Link to="/set-timer" className="absolute z-100 w-7 h-7 top-10 left-4">
         <img src="/arr.png" />
       </Link>
       <div className="absolute top-10 left-4">
