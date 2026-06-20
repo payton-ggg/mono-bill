@@ -15,10 +15,9 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route path="/" element={<EPassPixel />} />
           <Route path="/set-timer" element={<SetTimer />} />
-          <Route path="/mine" element={<Mine />} />
           <Route path="/easy-pay" element={<EasyPay />} />
         </Routes>
       </TimerProvider>
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );
