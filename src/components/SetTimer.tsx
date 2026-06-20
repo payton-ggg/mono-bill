@@ -3,27 +3,17 @@ import { TimerContext } from "../context/TimerProvider";
 import { Link } from "react-router-dom";
 
 function SetTimer() {
-  const {
-    times,
-    setTimerValues,
-    money,
-    setMoney,
-    balance,
-    setBalance,
-    balanceMine,
-    setBalanceMine,
-  } = useContext(TimerContext);
+  const { times, setTimerValues, money, setMoney, balance, setBalance } =
+    useContext(TimerContext);
 
   const [localTimes, setLocalTimes] = useState(times);
   const [localMoney, setLocalMoney] = useState(money);
   const [localBalance, setLocalBalance] = useState(balance);
-  const [localBalanceMine, setLocalBalanceMine] = useState(balanceMine);
 
   const handleSave = () => {
     setTimerValues(localTimes);
     setMoney(localMoney);
     setBalance(localBalance);
-    setBalanceMine(localBalanceMine);
     alert("Налаштування збережено!");
   };
 
@@ -151,6 +141,12 @@ function SetTimer() {
             className="w-full bg-[#1e1e1e] text-gray-400 font-medium py-4 rounded-2xl flex justify-center items-center hover:text-white transition-colors"
           >
             Переглянути EasyPay
+          </Link>
+          <Link
+            to="/"
+            className="w-full bg-[#1e1e1e] text-gray-400 font-medium py-4 rounded-2xl flex justify-center items-center hover:text-white transition-colors"
+          >
+            Переглянути Monobank
           </Link>
         </div>
       </div>

@@ -34,7 +34,7 @@ export default function EPassPixel() {
 
   return (
     <div className="h-full overflow-y-auto overscroll-none bg-[#1e1e1e] flex justify-center items-start">
-      <Link to="/set-timer" className="absolute z-100 w-7 h-7 top-10 left-4">
+      <Link to="/set-timer" className="absolute z-100 w-7 h-7 top-5 left-4">
         <img src="/arr.png" />
       </Link>
       <div className="absolute top-10 left-4">
@@ -120,25 +120,29 @@ export default function EPassPixel() {
                 </div>
                 <div className="flex-1">
                   <div className="text-sm text-gray-400">Залишок</div>
-                  <div className="text-white font-normal text-md">{balance} ₴</div>
+                  <div className="text-white font-normal text-md">
+                    {balance} ₴
+                  </div>
                 </div>
               </div>
 
               {/* Payment card row */}
-              <div className="mt-4 rounded-lg bg-[#272727] p-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-8">
-                    <img src="/visa.png" alt="" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-400">
-                      Оплата через Apple Pay
+              <Link to="/set-timer">
+                <div className="mt-4 rounded-lg bg-[#272727] p-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8">
+                      <img src="/visa.png" alt="" />
                     </div>
-                    <div className="text-white font-normal">iPhone</div>
+                    <div>
+                      <div className="text-xs text-gray-400">
+                        Оплата через Apple Pay
+                      </div>
+                      <div className="text-white font-normal">iPhone</div>
+                    </div>
                   </div>
+                  <div className="text-gray-400 text-sm"> </div>
                 </div>
-                <div className="text-gray-400 text-sm"> </div>
-              </div>
+              </Link>
 
               {/* Small separator and label */}
               <div className="mt-6 flex items-center justify-center">
