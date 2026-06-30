@@ -4,7 +4,6 @@ import "./App.css";
 import EPassPixel from "./App.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SetTimer from "./components/SetTimer.tsx";
-import Mine from "./components/Mine.tsx";
 import { TimerProvider } from "./context/TimerProvider.tsx";
 import EasyPay from "./components/EasyPay.tsx";
 
